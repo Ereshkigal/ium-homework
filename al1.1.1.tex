@@ -1,0 +1,48 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{csquotes}
+\usepackage{xstring}
+\usepackage{xfrac}
+
+%%math
+%problem
+\newcounter{prb}
+\newcommand{\prb}[1]{\addtocounter{prb}{1}\vskip 2mm\noindent{\bf \arabic{prb}. }{\it #1\/}\vskip 2mm}
+%statement
+\newcommand{\stt}[1]{\vskip 1mm\noindent{\bf Утверждение. }{\it #1\/}\vskip 1mm}
+%misc
+\newcommand{\lleq}{\leqslant}
+\newcommand{\ggeq}{\geqslant}
+
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+\newtheorem*{answer}{Ответ:}
+
+\begin{document}
+
+\section*{ЗАДАЧА 1}
+
+\begin{answer}
+$2^n$
+\end{answer}
+\begin{proof}
+Докажем индукцией по $n$ следующее утверждение: для всех $X$ верно, что если $|X|=n$, то $|2^X|=2^n$.
+
+{\bf База.} Для случая $n=0$ можно проверить, что у пустого множества $X$ всего одно подмножество: пустое. То есть $|2^X|=2^0$.
+
+{\bf Индукционный переход.} Пусть для некоторого $k$ доказываемое утверждение выполняется. Докажем, что оно выполняется и для $k+1$.
+
+Зафиксируем произвольное $X$, $|X|=k+1$, и возьмем какой-нибудь $x\in X$. Поскольку $|X\setminus \{x\}| = k$, из индукционного предположения следует, что $|2^{X\setminus \{x\}}|=2^k$. Теперь разобьем $2^X$ на парочки: элементу $A\in 2^X$ соответствует $A\cup \{x\}$, если $x\not\in A$, и $A\setminus \{x\}$ в противном случае. 
+
+Покажем, что парочек столько же, сколько элементов в $2^{X\setminus \{x\}}$. Каждой парочке $\{A, A'\}$ поставим в соответствие $A\cap A'\in 2^{X\setminus \{x\}}$, а каждому элементу $B \in 2^{X\setminus \{x\}}$ поставим в соответствие $\{B, B\cup \{x\}\}$. Проверим, что эти соответствия --- обратные функции друг друга:  если $x\in A'$, парочка $\{A, A'\}$ перейдет в $A\in 2^{X\setminus \{x\}}$, а $A\in 2^{X\setminus \{x\}}$ в свою очередь перейдет в $\{A, A'\}$. И наоборот: $B \in 2^{X\setminus \{x\}}$ перейдет в $\{B, B\cup\{x\}\}$, а затем вернется в $B\cap (B\cup\{x\})=B\in 2^{X\setminus \{x\}}$. Поэтому у нас есть биекция между парочками элементов $2^X$ и множеством $2^{X\setminus \{x\}}$. Так что в $2^X$ в два раза больше элементов, чем в $2^{X\setminus \{x\}}$, то есть $|2^X|=2^{k+1}$.
+\end{proof}
+
+\end{document}
