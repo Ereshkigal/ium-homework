@@ -1,0 +1,51 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{csquotes}
+\usepackage{xstring}
+\usepackage{xfrac}
+
+\binoppenalty=10000
+\relpenalty=10000
+
+%%math
+%problem
+\newcounter{prb}
+\newcommand{\prb}[1]{\addtocounter{prb}{1}\vskip 2mm\noindent{\bf \arabic{prb}. }{\it #1\/}\vskip 2mm}
+%statement
+\newcommand{\stt}[1]{\vskip 1mm\noindent{\bf Утверждение. }{\it #1\/}\vskip 1mm}
+%misc
+\newcommand{\lleq}{\leqslant}
+\newcommand{\ggeq}{\geqslant}
+
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+\newtheorem*{answer}{Ответ:}
+
+\begin{document}
+
+\section*{ЗАДАЧА 3а}
+
+\begin{answer}
+$4!$ 
+\end{answer}
+\begin{proof}
+Докажем по индукции, что $n$ элементов можно переставить $n!$ способами. 
+
+{\bf База.} Всего существует одна перестановка нуля элементов: пустая.
+
+{\bf Индукционный переход.} Пусть известно, что $k$ элементов можно переставить $k!$ способами. Докажем, что $k+1$ элемент можно переставить $(k+1)!$ способом.
+
+Зафиксируем элемент с номером $l$ и рассмотрим отображение $f\colon P_{k+1}\to P_k$, из множества перестановок $k+1$ элементов в множество перестановок $k$ элементов, которое вычеркивает элемент с номером $l$. Для всех $x\in P_k$ известно, что $|f^{-1}(x)|=k+1$. Поскольку $f$ сюръективно, и $|P_k|=k!$, можно посчитать количество элементов в $P_{k+1}$: $(k+1)\,k!=(k+1)!$.
+ 
+В слове \enquote{урок} четыре разные буквы, искомое количество слов это количество всевозможных перестановок этих четырех букв: $4!$.
+\end{proof}
+
+\end{document}
