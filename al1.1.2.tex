@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{csquotes}
+\usepackage{xstring}
+\usepackage{xfrac}
+
+%%math
+%misc
+\newcommand{\lleq}{\leqslant}
+\newcommand{\ggeq}{\geqslant}
+
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+\newtheorem*{answer}{Ответ:}
+
+\begin{document}
+
+\section*{ЗАДАЧА 2}
+
+\begin{answer}
+$A\cap B = A \setminus (A \setminus B)$
+\end{answer}
+
+\begin{proof}
+Сначала докажем, что $A\cap B \subset A \setminus (A \setminus B)$. 
+
+Пусть $x\in A\cap B$. Tогда $x \in A$ и $x\in B$, значит $x\not\in A \setminus B$. Поскольку $x \in A$ и $x\not\in A \setminus B$, то $x\in A \setminus (A \setminus B)$.
+
+Теперь докажем, что $A\cap B \supset A \setminus (A \setminus B)$.
+
+Пусть $x\in A \setminus (A \setminus B)$. Тогда $x\in A$ и $x\not\in A \setminus B$. Последнее означает, что $x\in A \implies x\in B$. Поскольку $x\in A$, то $x\in B$. Поэтому $x \in A\cap B$.
+\end{proof}
+
+\begin{answer}
+Разность множеств $A\setminus B$ нельзя выразить через пересечение и объединение.
+\end{answer}
+
+\begin{proof}
+Рассмотрим набор множеств $M=\{\,A, B, A\cap B, A\cup B\,\}$. Можно проверить перебором, что это множество замкнуто относительно операций пересечения и объединения.
+
+Теперь рассмотрим множество $F$ всех формальных выражений, в которые элементы $M$ входят в качестве операндов, а пересечение и объединение --- в качестве операций. Поскольку $M$ замкнуто относительно пересечения и объединения, результат подсчета любого такого формального выражения лежит в $M$.
+
+Если бы множество $A\setminus B$ можно было выразить, используя $A$, $B$, пересечение и объединение, то существовало бы соответствующее формальное выражение $p\in F$, результат подсчета которого равнялся множеству $A\setminus B$. Но поскольку$A\setminus B \not\in M$, такого формального выражения нет, так что разность $A\setminus B$ нельзя выразить через пересечение и объединение.
+\end{proof}
+
+\end{document}
